@@ -28,10 +28,16 @@ function updateDomLibrary(libraryArray) {
         let title = document.createElement('div');
         let pages = document.createElement('div');
         let read = document.createElement('div');
+        let removeBookButton = document.createElement('span')
         bookInfo.dataset.index = book.index;
-        let info = [author, title, pages, read];
+        let info = [removeBookButton, author, title, pages, read];
         bookInfo.classList.add('book');
-        
+        removeBookButton.classList.add('exit-button')
+        removeBookButton.addEventListener('click', () => {
+            removeBookFromLibrary(book.index)
+            updateDomLibrary(myLibrary)
+        })
+        removeBookButton.textContent = 'X'
         author.textContent = book.author;
         title.textContent = book.title;
         pages.textContent = book.pages;
@@ -44,6 +50,9 @@ function updateDomLibrary(libraryArray) {
 }
 function addBookToLibrary(book) {
     myLibrary.push(book)
+}
+function removeBookFromLibrary(index) {
+    myLibrary.splice(index, 1)
 }
 function toggleModal() {
     let modal = document.querySelector('.modal');

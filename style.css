@@ -21,7 +21,7 @@ button {
     left: 0;
     right: 0;
     top: 0;
-    z-index: 0;
+    z-index: 2;
     width: 100%;
     height: 100%;
     overflow: none;
@@ -51,6 +51,12 @@ button {
     border-radius: 50%;
     cursor: pointer;
 }
+.exit-button {
+    position: absolute;
+    right: 5px;
+    top: 2px;
+    cursor: pointer
+}
 ul {
     list-style: none;
     padding: 0;
@@ -66,9 +72,7 @@ ul li {
     flex-direction: column;
     gap: 8px
 }
-ul li label {
-    align-self: ;
-}
+
 .modal form {
     display: flex;
     flex-direction: column;
@@ -80,6 +84,7 @@ ul li label {
 }
 .book {
     border: 2px solid black;
+    z-index: 0;
     border-radius: 7px;
     height: 180px;
     display: flex;
@@ -88,5 +93,6 @@ ul li label {
     font-size: 18px;
     justify-content: space-between;
     flex-direction: column;
-    font-family:'Spline Sans', sans-serif;;
+    font-family:'Spline Sans', sans-serif;
+    position: relative;
 }
