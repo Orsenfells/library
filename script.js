@@ -32,21 +32,13 @@ function updateDomLibrary(libraryArray) {
         let author = document.createElement('div');
         let title = document.createElement('div');
         let pages = document.createElement('div');
-
         let removeBookButton = document.createElement('span')
         let readButton = document.createElement('button')
+
         bookInfo.dataset.index = book.index;
         let info = [removeBookButton, author, title, pages, readButton];
         bookInfo.classList.add('book');
         removeBookButton.classList.add('exit-button')
-        removeBookButton.addEventListener('click', () => {
-            removeBookFromLibrary(book.index)
-            updateDomLibrary(myLibrary)
-        })
-        readButton.addEventListener('click',() => {
-            book.hasRead()
-            updateDomLibrary(myLibrary)
-        })
         readButton.textContent = book.read ? 'Completed' : 'Not Completed'
         removeBookButton.textContent = 'X'
         author.textContent = book.author;
@@ -56,6 +48,15 @@ function updateDomLibrary(libraryArray) {
             bookInfo.appendChild(info)
         })
         bookshelf.appendChild(bookInfo)
+
+        removeBookButton.addEventListener('click', () => {
+            removeBookFromLibrary(book.index)
+            updateDomLibrary(myLibrary)
+        })
+        readButton.addEventListener('click',() => {
+            book.hasRead()
+            updateDomLibrary(myLibrary)
+        })
     })
 }
 function addBookToLibrary(book) {
