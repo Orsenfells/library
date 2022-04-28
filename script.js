@@ -1,4 +1,4 @@
-const addBookButton = document.querySelector('.addBook');
+const addBookButton = document.querySelector('.add-book');
 const modalExit = document.querySelector('.modal-exit');
 const submitButton = document.querySelector('.submit');
 let myLibrary = [];
