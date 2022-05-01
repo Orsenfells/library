@@ -24,6 +24,7 @@ function removeAllChildren(node) {
         node.removeChild(node.lastChild)
     }
 }
+
 function updateDomLibrary(libraryArray) {
     let bookshelf = document.querySelector('.container')
     removeAllChildren(bookshelf)
@@ -35,8 +36,36 @@ function updateDomLibrary(libraryArray) {
         let removeBookButton = document.createElement('span')
         let readButton = document.createElement('button')
 
+        let authorLabel = document.createElement('div')
+        let titleLabel = document.createElement('div')
+        let pagesLabel = document.createElement('div')
+        let completedLabel = document.createElement('div')
+
+        let titleContainer = document.createElement('div')
+        let authorContainer = document.createElement('div')
+        let pagesContainer = document.createElement('div')
+        let completedContainer = document.createElement('div')
+
+        titleContainer.appendChild(titleLabel)
+        titleContainer.appendChild(title)
+        authorContainer.appendChild(authorLabel)
+        authorContainer.appendChild(author)
+        pagesContainer.appendChild(pagesLabel)
+        pagesContainer.appendChild(pages)
+        completedContainer.appendChild(completedLabel)
+        completedContainer.appendChild(readButton)
+
+        titleLabel.textContent = 'Title:'
+        authorLabel.textContent = 'Author:'
+        pagesLabel.textContent = 'Pages:'
+        completedLabel.textContent = 'Progress:'
+        
+        titleContainer.className = 'book-info-container'
+        authorContainer.className = 'book-info-container'
+        pagesContainer.className = 'book-info-container'
+        completedContainer.className = 'book-info-container'
         bookInfo.dataset.index = book.index;
-        let info = [removeBookButton, author, title, pages, readButton];
+        let info = [removeBookButton, titleContainer, authorContainer, pagesContainer, completedContainer];
         bookInfo.classList.add('book');
         removeBookButton.classList.add('exit-button')
         readButton.textContent = book.read ? 'Completed' : 'Not Completed'
