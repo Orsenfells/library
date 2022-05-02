@@ -1,11 +1,10 @@
 const addBookButton = document.querySelector('.add-book');
 const modalExit = document.querySelector('.modal-exit');
 const submitButton = document.querySelector('.submit');
+const form = document.querySelector('#new-book-form')
 let myLibrary = [];
 addBookToLibrary(new Book('Joe Abercrombie', 'The First Law', '600', true, myLibrary.length)) ;
 addBookToLibrary(new Book('Joe Abercrombie', 'The Last Argument of Kings', '700', true, myLibrary.length));
-
-
 
 function Book(author, title, pages, read, index) {
     this.author = author;
@@ -102,9 +101,11 @@ function toggleModal() {
 }
 addBookButton.addEventListener('click', toggleModal)
 modalExit.addEventListener('click', toggleModal)
-submitButton.addEventListener('click', () => {
+form.addEventListener('submit', (e) => {
+    e.preventDefault()
     let input = ['author', 'title', 'pages', 'read']
     let book = {};
+    console.log(e.target)
     let emptyValue = false;
     input.forEach(input => {
         let domInput = document.querySelector(`#${input}`)
@@ -122,4 +123,5 @@ submitButton.addEventListener('click', () => {
     updateDomLibrary(myLibrary)
     toggleModal();
 })
+
 updateDomLibrary(myLibrary)

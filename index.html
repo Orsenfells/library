@@ -24,22 +24,22 @@
 
     <div class="modal">
         <div class="modal-content">
-            <form>
+            <form id="new-book-form">
                 <span class="modal-exit">&#10006</span>
                 <div class="modal-head">New Book</div>
                 <ul>
                     <li>
                         <label for='title'>Title</label>
-                        <input id='title'>
+                        <input id='title' required>
                     </li>
                     <li>
-                        <label for='author'>Author</label>
-                        <input id='author'>
+                        <label for='author' >Author</label>
+                        <input id='author' required>
                     </li>
                     
                     <li>
-                        <label for='pages'>Pages</label>
-                        <input id='pages'>
+                        <label for='pages' >Pages</label>
+                        <input id='pages' required>
                     </li>
                     <li>
                         <label for='read'>Read
@@ -47,7 +47,7 @@
                         </label>
                     </li>
                 </ul>                             
-                <button type='button' class='submit'>Submit</button>
+                <button type='submit' class='submit'>Submit</button>
             </form>
         </div>
     </div>       
