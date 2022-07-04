@@ -99,6 +99,13 @@ function toggleModal() {
         modal.style.display = 'none'
     } else modal.style.display = 'block'
 }
+function formValidation() {
+    let title = document.getElementById('title')
+    let author = document.getElementById('author')
+    let pages = document.getElementById('pages')
+
+    title.addEventListener() 
+}
 addBookButton.addEventListener('click', toggleModal)
 modalExit.addEventListener('click', toggleModal)
 form.addEventListener('submit', (e) => {
